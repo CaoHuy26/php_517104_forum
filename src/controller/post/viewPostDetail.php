@@ -13,7 +13,7 @@
     echo htmlspecialchars_decode($rowPost['content']);
 
     //  Admin hoặc người tạo ra bài viết mới có quyền sửa, xoá bài viết
-    if ($rowPost['userId'] == $userSession['id'] || $userSession['username'] == 'admin1') {
+    if ($rowPost['userId'] == $userSession['id'] || $userSession['username'] == 'admin') {
       echo "Sửa";
       echo "Xoá";
     }
