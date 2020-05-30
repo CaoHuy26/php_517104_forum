@@ -9,7 +9,7 @@
 </form>
 
 <?php
-  include('./connect.php');
+  include('../connect.php');
   if (isset($_POST['register'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];

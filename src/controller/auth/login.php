@@ -11,7 +11,7 @@
 </form>
 
 <?php
-  include('./connect.php');
+  include('../connect.php');
   if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -29,7 +29,7 @@
         $rowUser = mysqli_fetch_array($runQueryUser);
         if ($rowUser['password'] == $password) {
           $_SESSION['username'] = $username;
-          header('location:index.php');
+          header('location: http://localhost:8888/php_forum/src/view/index.php');
         }
         else {
           echo "Sai mật khẩu";
