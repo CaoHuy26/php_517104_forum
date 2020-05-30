@@ -1,8 +1,8 @@
 # php_517104_forum
 Final assignment PHP 517104
 
-- [ ] Đăng ký
-- [ ] Đăng nhập
+- [x] Đăng ký
+- [x] Đăng nhập
   - [ ] Xác nhận email
 - [ ] Hiển thị bài viết theo danh mục
 - [ ] Hiển thị chi tiết bài viết
