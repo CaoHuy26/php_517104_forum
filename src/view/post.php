@@ -74,12 +74,14 @@
           }
           else {
             echo '
-            <div class="input-group mb-3">
-              <input type="text" class="form-control shadow-none" placeholder="Viết bình luận..." aria-describedby="button-addon2" />
-              <div class="input-group-append">
-                <button class="btn btn-outline-info shadow-none" type="button" id="button-addon2">Bình luận</button>
+            <form method="POST" action="http://localhost:8888/php_forum/src/controller/comment/addComment.php?postId='.$postId.'" >
+              <div class="input-group mb-3">
+                <input type="text" name="comment" class="form-control shadow-none" placeholder="Viết bình luận..." aria-describedby="button-addon2" />
+                <div class="input-group-append">
+                  <input type="submit" name="addComment" value="Bình luận" class="btn btn-outline-info shadow-none" id="button-addon2" />
+                </div>
               </div>
-            </div>
+            </form>
             ';
           }
         ?>
@@ -123,6 +125,10 @@
                   }
                 ?>
               </div>
+              <span style="color: rgb(120, 124, 126); font-size: 11">
+                <!-- rowComment[4]: Time comment -->
+                <?php echo $rowComment[4]?>
+              </span>
               <hr>
             </div>
           </div>

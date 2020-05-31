@@ -12,6 +12,7 @@ Final assignment PHP 517104
 - [ ] Reaction
 - [x] Thêm sửa xoá bài viết (admin)
 - [x] Xoá bình luận (admin)
+- [ ] Thay đổi ảnh đại diện
 
 - [ ] Xây dựng giao diện
   - [ ] Form đăng nhập

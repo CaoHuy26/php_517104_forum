@@ -9,7 +9,7 @@
   $rowComment = mysqli_fetch_array($runQueryComment);
 
   # Admin hoặc người tạo ra bài viết mới có quyền xoá bài
-  if ($userSession['username'] == 'admin' || $userSession['id'] == $rowPost['userId'] || $userSession['role'] == 1) {
+  if ($userSession['username'] == 'admin' || $userSession['id'] == $rowComment['userId'] || $userSession['role'] == 1) {
     $deletePost = "DELETE FROM comment WHERE id = $commentId";
     $runDeletePost = mysqli_query($conn, $deletePost);
     
