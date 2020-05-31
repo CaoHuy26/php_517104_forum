@@ -106,11 +106,13 @@
               <span style="color: #177fd2"><?php echo $rowComment['username']?></span>
               <div style="display: flex; flex-direction: row">
                 <p class="mt-2"><?php echo $rowComment['comment']?></p>
+                <!-- Delete Comment Button -->
                 <?php
                   # Admin hoặc chủ bình luận mới có quyền xoá bình luận
                   if ($userSession['username'] == 'admin' || $userSession['role'] == 1 || $rowComment['userId'] == $userSession['id']) {
+                    # $rowComment[0]: commentId
                     echo '
-                    <a href="#">
+                    <a href="http://localhost:8888/php_forum/src/controller/comment/deleteComment.php?id=' .$rowComment[0]. '">
                       <svg style="margin-top: 14" color="red" class="bi bi-backspace ml-2" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M6.603 2h7.08a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-7.08a1 1 0 0 1-.76-.35L1 8l4.844-5.65A1 1 0 0 1 6.603 2zm7.08-1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0 1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603 1h7.08z"/>
                         <path fill-rule="evenodd" d="M5.83 5.146a.5.5 0 0 0 0 .708l5 5a.5.5 0 0 0 .707-.708l-5-5a.5.5 0 0 0-.708 0z"/>

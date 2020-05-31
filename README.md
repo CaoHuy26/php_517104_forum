@@ -4,11 +4,20 @@ Final assignment PHP 517104
 - [x] Đăng ký
   - [ ] Xác nhận email
 - [x] Đăng nhập
+- [ ] Thêm bài viết
+- [ ] Sửa bài viết
 - [ ] Hiển thị bài viết theo danh mục
-- [ ] Hiển thị chi tiết bài viết
-- [ ] Bình luận
+- [x] Hiển thị chi tiết bài viết
+- [x] Bình luận
 - [ ] Reaction
 - [x] Thêm sửa xoá bài viết (admin)
-- [ ] Xoá bình luận (admin)
+- [x] Xoá bình luận (admin)
 
 - [ ] Xây dựng giao diện
+  - [ ] Form đăng nhập
+  - [ ] Form đăng ký
+  - [x] Trang chủ
+  - [x] Trang xem chi tiết bài viết
+  - [ ] Form thêm bài viết
+  - [ ] Form chỉnh sửa bài viết
+  - [ ] Phân trang
