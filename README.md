@@ -8,7 +8,7 @@ Final assignment PHP 517104
 - [ ] Hiển thị chi tiết bài viết
 - [ ] Bình luận
 - [ ] Reaction
-- [ ] Thêm sửa xoá bài viết (admin)
+- [x] Thêm sửa xoá bài viết (admin)
 - [ ] Xoá bình luận (admin)
 
 - [ ] Xây dựng giao diện

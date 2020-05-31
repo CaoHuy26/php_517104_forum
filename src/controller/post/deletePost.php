@@ -15,7 +15,7 @@
     
     if ($runDeletePost) {
       echo "Xoá bài viết thành công";
-      // header("location: http://localhost:8888/php_forum/src/view/index.php");
+      header("location: http://localhost:8888/php_forum/src/view/index.php");
     }
     else {
       echo "Xoá bài viết thất bại";
