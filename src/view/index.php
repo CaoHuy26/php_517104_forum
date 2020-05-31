@@ -14,6 +14,8 @@
 
 <div class="container mt-4">
   <div class="row">
+
+    <!-- POST -->
     <div class="col-9">
       <?php
         include ('../controller/post/viewPosts.php');
@@ -25,10 +27,14 @@
               <div>
                 <h5>
                   <!-- $rowPost[0]: postId -->
-                  <a href="http://localhost:8888/php_forum/src/view/post.php?id=<?php echo $rowPost[0]?>">
+                  <a style="color: black" href="http://localhost:8888/php_forum/src/view/post.php?id=<?php echo $rowPost[0]?>">
                     <?php echo $rowPost['title']?>
                   </a>
                 </h5>
+                
+                <a href="#" class="btn badge badge-info" style="font-size: 11">
+                  <?php echo $rowPost['name']?>
+                </a>
               </div>
               <!-- Edit & Delete -->
               <?php
@@ -58,11 +64,44 @@
               ?>
             </div>
             <hr>
-            <p><?php echo htmlspecialchars_decode($rowPost['content'])?></p>
+            <!-- Description -->
             <p>
-              Post by <?php echo $rowPost['username']?>, <?php echo $rowPost['createdAt']?>
+              <?php echo $rowPost['description']?>
             </p>
             
+            <div style="display: flex">
+              <svg color="rgb(120, 124, 126)" class="bi bi-person-fill mr-1 mt-1" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+              </svg>
+              <!-- Caculate time -->
+              <?php
+                date_default_timezone_set('Asia/Ho_Chi_Minh');
+                $currentTime = date("Y-m-d H:i:s");
+                $currentTime = strtotime($currentTime);
+                # Upload time
+                $uploadTime = $rowPost['createdAt'];
+                $uploadTime = strtotime($uploadTime);
+                # Caculate time
+                $diff = abs($currentTime - $uploadTime);
+                $years = floor($diff / (365 * 60 * 60 * 24));  
+                $months = floor(($diff - $years * 365 * 60 * 60 * 24) / (30 * 60 * 60 * 24));  
+                $days = floor(($diff - $years * 365 * 60 * 60 *24 - $months * 30 * 60 * 60 * 24)/ (60 * 60 * 24)); 
+              ?>
+              <p class="mt-1" style="color: rgb(120, 124, 126); font-size: 12">
+                <?php echo $rowPost['username']?>,
+                <span style="font-size: 11">
+                  <?php
+                    if ($days >= 1) {
+                      echo $days. ' Ngày trước';
+                    }
+                    else {
+                      echo "Hôm nay";
+                    }
+                  ?>
+                </span>
+              </p>
+            </div>
+
             <!-- Comment -->
             <div style="display: flex">
               <svg class="bi bi-chat" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -75,7 +114,7 @@
                 $countComment = mysqli_fetch_assoc($runQueryNumberOfComment);
               ?>
               <p class="ml-2" style="font-size: 12px">
-                <?php echo $countComment['numberOfComment'];?>
+                <?php echo $countComment['numberOfComment'];?> Bình luận
               </p>
             </div>
           </div>
@@ -83,6 +122,7 @@
       <?php } ?>
     </div>
 
+    <!-- CATEGORY -->
     <div class="col-3"> 
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Tìm kiếm">

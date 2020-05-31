@@ -3,6 +3,17 @@
   include ('../controller/userSession.php');
 ?>
 
+<style>
+  #avatar-user {
+    border-radius: 50%; 
+    background-color: #d3d9dc;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    padding-top: 3px;
+  }
+</style>
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -25,6 +36,9 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Link</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
           ';
         }
       ?>
@@ -38,7 +52,14 @@
         ';
       }
       else {
-        echo '<p class="my-2 my-sm-0 mr-4">Hello ' .$userSession['username']. '</p>';
+        echo '
+          <div id="avatar-user" class="mr-2">
+            <svg class="bi bi-person-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+            </svg>
+          </div>
+        ';
+        echo '<p class="my-2 my-sm-0 mr-4">' .$userSession['username']. '</p>';
         echo '<a href="http://localhost:8888/php_forum/src/controller/auth/logout.php" class="btn btn-outline-success my-2 my-sm-0">Đăng xuất</a>';
       }
     ?>
