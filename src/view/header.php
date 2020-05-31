@@ -4,7 +4,7 @@
 ?>
 
 <style>
-  #avatar-user {
+  .avatar-user {
     border-radius: 50%; 
     background-color: #d3d9dc;
     width: 25px;
@@ -48,19 +48,19 @@
       if ($userSession['username'] == '') {
         echo '
           <a href="http://localhost:8888/php_forum/src/controller/auth/login.php" class="btn my-2 my-sm-0">Đăng nhập</a>
-          <a href="http://localhost:8888/php_forum/src/controller/auth/register.php" class="btn btn-outline-success my-2 my-sm-0">Đăng ký</a>
+          <a href="http://localhost:8888/php_forum/src/controller/auth/register.php" class="btn btn-outline-info my-2 my-sm-0">Đăng ký</a>
         ';
       }
       else {
         echo '
-          <div id="avatar-user" class="mr-2">
+          <div class="avatar-user mr-2">
             <svg class="bi bi-person-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
             </svg>
           </div>
         ';
         echo '<p class="my-2 my-sm-0 mr-4">' .$userSession['username']. '</p>';
-        echo '<a href="http://localhost:8888/php_forum/src/controller/auth/logout.php" class="btn btn-outline-success my-2 my-sm-0">Đăng xuất</a>';
+        echo '<a href="http://localhost:8888/php_forum/src/controller/auth/logout.php" class="btn btn-outline-info my-2 my-sm-0">Đăng xuất</a>';
       }
     ?>
   
