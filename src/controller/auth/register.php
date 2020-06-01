@@ -1,13 +1,3 @@
-<form method="POST">
-    Tài khoản: <input type="text" name="username">
-    <br>
-    Mật khẩu: <input type="password" name="password">
-    <br>
-    Nhập lại mật khẩu: <input type="password" name="re_password">
-    <br>
-    <input type="submit" name="register" value="Đăng ký">
-</form>
-
 <?php
   include('../connect.php');
   if (isset($_POST['register'])) {
@@ -37,7 +27,7 @@
         $runInsertUser = mysqli_query($conn, $insertUser);
         if ($runInsertUser) {
           echo "Đăng ký thành công";
-          header('location:login.php');
+          header('location: http://localhost:8888/php_forum/src/view/login.php');
         }
         else {
           echo "Đăng ký thất bại";

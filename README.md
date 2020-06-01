@@ -15,8 +15,8 @@ Final assignment PHP 517104
 - [ ] Thay đổi ảnh đại diện
 
 - [ ] Xây dựng giao diện
-  - [ ] Form đăng nhập
-  - [ ] Form đăng ký
+  - [x] Form đăng nhập
+  - [x] Form đăng ký
   - [x] Trang chủ
   - [x] Trang xem chi tiết bài viết
   - [ ] Form thêm bài viết

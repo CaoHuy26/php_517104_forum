@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand ml-2" href="#">Forum</a>
+  <a class="navbar-brand ml-2" href="http://localhost:8888/php_forum/src/view/">Forum</a>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -47,8 +47,8 @@
     <?php
       if ($userSession['username'] == '') {
         echo '
-          <a href="http://localhost:8888/php_forum/src/controller/auth/login.php" class="btn my-2 my-sm-0">Đăng nhập</a>
-          <a href="http://localhost:8888/php_forum/src/controller/auth/register.php" class="btn btn-outline-info my-2 my-sm-0">Đăng ký</a>
+          <a href="http://localhost:8888/php_forum/src/view/login.php" class="btn my-2 my-sm-0">Đăng nhập</a>
+          <a href="http://localhost:8888/php_forum/src/view/register.php" class="btn btn-outline-info my-2 my-sm-0">Đăng ký</a>
         ';
       }
       else {

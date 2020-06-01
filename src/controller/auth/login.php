@@ -2,14 +2,6 @@
   session_start();
 ?>
 
-<form action="" method="post">
-  Tài khoản: <input type="text" name="username">
-  <br>
-  Mật khẩu: <input type="password" name="password">
-  <br>
-  <input type="submit" name="login" value="Đăng nhập">
-</form>
-
 <?php
   include('../connect.php');
   if (isset($_POST['login'])) {
