@@ -25,11 +25,15 @@
         <a class="nav-link" href="http://localhost:8888/php_forum/src/view/">Trang chủ</a>
       </li>
       <?php
-        if ($userSession['username'] == 'admin') {
+        if ($userSession['username'] != '') {
           echo '
             <li class="nav-item">
-              <a class="nav-link" href="#">Thêm bài viết</a>
+              <a class="nav-link" href="http://localhost:8888/php_forum/src/view/addPost.php">Thêm bài viết</a>
             </li>
+          ';
+        }
+        if ($userSession['username'] == 'admin') {
+          echo '
             <li class="nav-item">
               <a class="nav-link" href="#"></a>
             </li>

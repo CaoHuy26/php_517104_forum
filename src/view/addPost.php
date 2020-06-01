@@ -1,21 +1,13 @@
-<?php 
-  include('./header.php');
-?>
-
 <?php
-  $postId = $_GET['id'];
-
-  $queryPost = "SELECT * FROM post WHERE id = '$postId'";
-  $runQueryPost = mysqli_query($conn, $queryPost);
-  $rowPost = mysqli_fetch_array($runQueryPost);
+  include ('./header.php');
 ?>
 
 <script src="../../ckeditor/ckeditor.js"></script>
 
 <div class="container mt-4">
-  <h3>Sửa bài viết (<?php echo $rowPost['id']?>)</h3>
+  <h3>Thêm bài viết mới</h3>
   
-  <form action="http://localhost:8888/php_forum/src/controller/post/updatePost.php?id=<?php echo $rowPost['id']?>" method="post">
+  <form action="http://localhost:8888/php_forum/src/controller/post/addPost.php" method="post">
     <div class="row">
       <span class="col-2">Chuyên mục<span>
       <select type="text" name="category">
@@ -36,30 +28,29 @@
     
     <div class="row">
       <span class="col-2">Tiêu đề</span>
-      <input class="col-6" type="text" name="title" value="<?php echo $rowPost['title']?>"/>
+      <input class="col-6" type="text" name="title"/>
     </div>
-    
+  
     <br>
 
     <div class="row">
       <span class="col-2">Mô tả</span>
-      <input class="col-6" type="text" name="description" value="<?php echo $rowPost['description']?>"/>
+      <input class="col-6" type="text" name="description"/>
     </div>
-    
+  
     <br>
-    
+  
     <div class="row">
       <span class="col-2">Nội dung</span>
-      <textarea class="col-6" id="editor2" name="content" cols="80" rows="10">
-        <?php echo $rowPost['content']?>
+      <textarea class="col-6" id="editor1" name="content" cols="80" rows="10">
       </textarea>
     </div>
     <br>
 
     <div class="text-center" style="display:flex">
-      <input class="btn btn-info" type="submit" name="updatePost" value="Sửa bài viết"/>
+      <input class="btn btn-info" type="submit" name="addPost" value="Đăng bài"/>
     </div> 
 
-    <script>CKEDITOR.replace('editor2');</script> 
+    <script>CKEDITOR.replace('editor1');</script> 
   </form>
 </div>

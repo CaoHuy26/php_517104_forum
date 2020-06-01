@@ -12,6 +12,7 @@
     " SELECT * FROM post
       INNER JOIN category ON post.categoryId = category.id
       INNER JOIN user ON post.userId = user.id
+      WHERE post.id = $postId;
     ";
   $runQueryPost = mysqli_query($conn, $queryPost);
   $rowPost = mysqli_fetch_array($runQueryPost);
@@ -50,7 +51,7 @@
         <p class="mt-1" style="color: rgb(120, 124, 126); font-size: 12">
           <?php echo $rowPost['username']?>,
           <span style="font-size: 11">
-            <?php echo $rowPost['createdAt']?>
+            <?php echo $rowPost[7]?>
           </span>
         </p>
       </div>

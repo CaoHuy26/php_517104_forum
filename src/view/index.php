@@ -133,7 +133,7 @@
         while ($rowCategory = mysqli_fetch_array($runQueryCategory)) {
       ?>
         <div class="mt-2">
-          <a href="#" class="btn badge badge-info" style="font-size: 14">
+          <a href="http://localhost:8888/php_forum/src/view/index.php?category=<?php echo $rowCategory['id']?>" class="btn badge badge-info" style="font-size: 14">
             <?php echo $rowCategory['name']?>
           </a>
         </div>
