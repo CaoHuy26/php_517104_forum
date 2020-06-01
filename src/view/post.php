@@ -23,28 +23,30 @@
   <div class="row">
     
     <!-- POST -->
-    <div class="col-9">
+    <div class="col-9 pr-5" style="margin-bottom: 200px">
        <!-- Category -->
-      <a href="#" class="btn badge badge-info" style="font-size: 11">
-        <?php echo $rowPost['name']?>
-      </a>
-      <!-- Title -->
-      <div style="display: flex">
-        <div class="mt-2">
-          <h3>
-            <?php echo $rowPost['title']?>
-          </h3>
-        </div>
-        <div class="ml-4 mt-2">
+      <div style="display: flex; justify-content: space-between;">
+        <a href="#" class="btn badge badge-info" style="font-size: 11; padding-top: 5px;">
+          <?php echo $rowPost['name']?>
+        </a>
+        <div>
           <?php
             include ('./components/PostAction.php'); # Action
           ?>
         </div>
       </div>
+      <!-- Title -->
+      <div>
+        <div class="mt-2">
+          <h3>
+            <?php echo $rowPost['title']?>
+          </h3>
+        </div>
+      </div>
       <!-- Description -->
       <?php echo $rowPost['description']?>
       <!-- Creator & Time -->
-      <div style="display: flex">
+      <div class="mt-2" style="display: flex">
         <svg color="rgb(120, 124, 126)" class="bi bi-person-fill mr-1 mt-1" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
         </svg>
@@ -57,11 +59,13 @@
       </div>
       
       <!-- Content -->
-      <?php echo htmlspecialchars_decode($rowPost['content'])?> 
+      <div>
+        <?php echo htmlspecialchars_decode($rowPost['content'])?> 
+      </div>
       <!-- END POST -->
 
       <!-- Comment -->
-      <div class="m-4" style="text-align: center">
+      <div class="mt-4" style="text-align: center">
         <?php
           if ($userSession['username'] == '') {
             echo '
@@ -95,6 +99,7 @@
           INNER JOIN user
           ON comment.userId = user.id
           WHERE postId = $postId
+          ORDER BY comment.createdAt DESC
           ";
         $runQueryComment = mysqli_query($conn, $queryComment);
         while ($rowComment = mysqli_fetch_array($runQueryComment)) {
@@ -158,4 +163,4 @@
   </div>
 </div>
 
-<?php } ?> 
+<?php } ?>

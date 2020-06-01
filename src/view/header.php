@@ -32,16 +32,16 @@
             </li>
           ';
         }
-        if ($userSession['username'] == 'admin') {
+        if ($userSession['username'] == 'admin' || $userSession['role'] == 1) {
           echo '
             <li class="nav-item">
-              <a class="nav-link" href="#"></a>
+              <a class="nav-link" href="#">Quản lý bài viết</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="#">Quản lý người dùng</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="#">Thống kê trang</a>
             </li>
           ';
         }
