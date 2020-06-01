@@ -1,7 +1,9 @@
 # php_517104_forum
 Final assignment PHP 517104
 
-Time: 1 week
+Deadline: 05/06/2020
+
+---
 
 - Backend
   - [x] Đăng ký
@@ -25,3 +27,14 @@ Time: 1 week
   - [x] Form thêm bài viết
   - [x] Form chỉnh sửa bài viết
   - [ ] Phân trang
+
+---
+
+## Giao diện
+![Homepage](https://user-images.githubusercontent.com/33257682/83396153-bb385d80-a425-11ea-9a07-6b68d406242e.png)
+![PostDetail](https://user-images.githubusercontent.com/33257682/83396218-d6a36880-a425-11ea-8fb8-a791e81259ce.png)
+
+---
+
+## Cài đặt
+- Database: /sql/Dump..
