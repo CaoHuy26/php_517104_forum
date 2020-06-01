@@ -11,10 +11,10 @@ Deadline: 05/06/2020
   - [x] Đăng nhập
   - [x] Thêm bài viết
   - [x] Sửa bài viết
-  - [ ] Hiển thị bài viết theo danh mục
+  - [x] Hiển thị bài viết theo danh mục
   - [x] Hiển thị chi tiết bài viết
   - [x] Bình luận
-  - [ ] Reaction
+  - [x] Reaction
   - [x] Thêm sửa xoá bài viết (admin)
   - [x] Xoá bình luận (admin)
   - [ ] Đăng ảnh
