@@ -37,4 +37,7 @@ Deadline: 05/06/2020
 ---
 
 ## Cài đặt
+- Clone this repository
+- Move to htdocs
+- Change connection: /src/controller/connect.php
 - Database: /sql/Dump..
