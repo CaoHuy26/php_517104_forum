@@ -99,6 +99,7 @@
           INNER JOIN user
           ON comment.userId = user.id
           WHERE postId = $postId
+          AND commentId IS NULL
           ORDER BY comment.createdAt DESC
           ";
         $runQueryComment = mysqli_query($conn, $queryComment);
@@ -131,10 +132,70 @@
                   }
                 ?>
               </div>
-              <span style="color: rgb(120, 124, 126); font-size: 11">
+              <span class="mb-2" style="color: rgb(120, 124, 126); font-size: 11">
                 <!-- rowComment[4]: Time comment -->
                 <?php echo $rowComment[4]?>
               </span>
+
+
+              <!-- Reply -->
+              <?php
+                $queryReplyComment = 
+                  "SELECT * 
+                  FROM comment
+                  INNER JOIN user
+                  ON comment.userId = user.id
+                  WHERE postId = $postId
+                  AND commentId = $rowComment[0]
+                  ORDER BY comment.createdAt DESC
+                  ";
+                $runQueryReplyComment = mysqli_query($conn, $queryReplyComment);
+                while ($rowReplyComment = mysqli_fetch_array($runQueryReplyComment)) {
+                  // echo print_r($rowReplyComment);
+              ?>
+                   <!-- ////// -->
+                   <div class="mt-3" style="display: flex">
+                    <div class="avatar-user mr-2">
+                      <svg class="bi bi-person-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                      </svg>
+                    </div>
+                    <div class="ml-2" style="flex: 1">
+                      <span style="color: #177fd2"><?php echo $rowReplyComment['username']?></span>
+                      <div style="display: flex; flex-direction: row">
+                        <p class="mt-2"><?php echo $rowReplyComment[3] ?></p>
+                        <!-- Delete Comment Button -->
+                        <?php
+                          # Admin hoặc chủ bình luận mới có quyền xoá bình luận
+                          if ($userSession['username'] == 'admin' || $userSession['role'] == 1 || $rowReplyComment['userId'] == $userSession['id']) {
+                            # $rowComment[0]: commentId
+                            echo '
+                            <a href="http://localhost:8888/php_forum/src/controller/comment/deleteComment.php?id=' .$rowReplyComment[0]. '">
+                              <svg style="margin-top: 14" color="red" class="bi bi-backspace ml-2" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M6.603 2h7.08a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-7.08a1 1 0 0 1-.76-.35L1 8l4.844-5.65A1 1 0 0 1 6.603 2zm7.08-1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0 1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603 1h7.08z"/>
+                                <path fill-rule="evenodd" d="M5.83 5.146a.5.5 0 0 0 0 .708l5 5a.5.5 0 0 0 .707-.708l-5-5a.5.5 0 0 0-.708 0z"/>
+                                <path fill-rule="evenodd" d="M11.537 5.146a.5.5 0 0 1 0 .708l-5 5a.5.5 0 0 1-.708-.708l5-5a.5.5 0 0 1 .707 0z"/>
+                              </svg>
+                            </a>
+                            ';
+                          }
+                        ?>
+                      </div>
+                    </div>
+                  </div>
+                   <!-- ////////// -->
+              <?php  } ?>
+
+
+              <form method="POST" action="http://localhost:8888/php_forum/src/controller/comment/replyComment.php?postId=<?php echo $postId ?>&commentId=<?php echo $rowComment[0]?>" >
+                <div class="input-group mb-3">
+                  <input type="text" name="comment" class="form-control shadow-none" placeholder="Trả lời bình luận..." aria-describedby="button-addon2" />
+                  <div class="input-group-append">
+                    <input type="submit" name="replyComment" value="Trả lời" class="btn btn-outline-info shadow-none" id="button-addon2" />
+                  </div>
+                </div>
+              </form>
+
               <hr>
             </div>
           </div>

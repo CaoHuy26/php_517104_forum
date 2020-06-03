@@ -16,27 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `category`
+-- Table structure for table `reaction`
 --
 
-DROP TABLE IF EXISTS `category`;
+DROP TABLE IF EXISTS `reaction`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `category` (
+CREATE TABLE `reaction` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `userId` int(11) DEFAULT NULL,
+  `postId` int(11) DEFAULT NULL,
+  `action` tinyint(3) DEFAULT NULL,
+  `createdAt` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `reaction_userId_pk_idx` (`userId`),
+  KEY `reaction_postId_pk_idx` (`postId`),
+  CONSTRAINT `reaction_postId_pk` FOREIGN KEY (`postId`) REFERENCES `post` (`id`),
+  CONSTRAINT `reaction_userId_pk` FOREIGN KEY (`userId`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `category`
+-- Dumping data for table `reaction`
 --
 
-LOCK TABLES `category` WRITE;
-/*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES (1,'Công nghệ'),(2,'Mobile'),(3,'Esports'),(4,'Khám phá'),(5,'Film'),(6,'Tin tức'),(7,'Cộng đồng'),(8,'Game');
-/*!40000 ALTER TABLE `category` ENABLE KEYS */;
+LOCK TABLES `reaction` WRITE;
+/*!40000 ALTER TABLE `reaction` DISABLE KEYS */;
+INSERT INTO `reaction` VALUES (29,1,13,1,'2020-06-02 02:45:17'),(46,1006,14,1,'2020-06-03 12:45:55'),(48,1,14,1,'2020-06-03 13:15:37');
+/*!40000 ALTER TABLE `reaction` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-06-01 16:25:01
+-- Dump completed on 2020-06-03 15:01:11
